@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+	</head>
+	<body>
+		<button id="btn">按钮</button>
+		<audio src="music/pygh.mp3" class="music"></audio>
+		<div id="box" class="rotate">这是个盒子</div>
+		<script type="text/javascript">
+			var btn = document.getElementById('btn');
+			var music = document.getElementsByClassName('music')[0];
+			btn.onclick = function(){
+				music.play();
+			}
+			
+		</script>
+	</body>
+</html>
