@@ -5,10 +5,23 @@
 		<title></title>
 	</head>
 	<body>
+		<textarea id="box"></textarea><br />
+		<button id="btn">走你</button><br />
+		<textarea id="con"></textarea>
 		<script type="text/javascript">
 			//去掉前后的空格
-			var str = '          41ss4dd7xxxx   xee7x8vv89vvx     ';
-			console.log(str.replace(/^\s*|\s*$/g,''));
+			//var str = '          41ss4dd7xxxx   xee7x8vv89vvx     ';
+			//console.log(str.replace(/^\s*|\s*$/g,''));
+			
+			//var str = 'djfiejvsdnvn';
+			var box = document.getElementById('box');
+			var btn = document.getElementById('btn');
+			var con = document.getElementById('con');
+			
+			btn.onclick = function(){
+				var val = box.value;
+				con.value = val.replace(/<[^>]+>/g,'');
+			}
 		</script>
 	</body>
 </html>
