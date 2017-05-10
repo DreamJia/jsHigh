@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function Person(name,sex,say){
+//				var obj = {};
+//				obj.name = name;
+//				obj.sex = sex;
+//				obj.say = function(){
+//					alert(say);
+//				}
+//				
+//				return obj;
+
+
+				this.name = name;
+				this.sex = sex;
+				this.say = function(){
+					alert(this);
+				}
+		}
+//			var p = Person('Jack','男','Byebye Rose,but I love you forever.');
+//			p.say();
+
+			var p = new Person('Jack','男','Byebye Rose,but I love you forever.');
+			p.say();
+		</script>
+	</body>
+</html>

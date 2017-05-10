@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function Person(name,age){//构造函数
+				this.name = name;
+				this.age = age; 
+//				this.say = function(){
+//					alert(this.name);
+//				}
+			}
+			var p = new Person('韩影','17');//实例化对象
+			var p2 = new Person('陈斌','30');
+			//
+			Person.prototype.say = function(){
+				alert(this.name);
+			}
+			p.say();
+			p2.say();
+			console.dir(p);
+			//console.log(p)
+		</script>
+	</body>
+</html>
