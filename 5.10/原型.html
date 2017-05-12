@@ -6,6 +6,20 @@
 	</head>
 	<body>
 		<script type="text/javascript">
+	
+			/*
+				原型链一定是找实例化对象的，构造函数下的原型 
+				
+				
+				
+				let:变量
+					1.声明变量的时候不会在window下注册这个变量
+					2.暂存死区（没有预解析，先声明再使用，不然会报错）
+					3.支持块级作用域
+					
+				面向对象选项卡
+					1.
+			*/
 			function Person(name,age){//构造函数
 				this.name = name;
 				this.age = age; 
@@ -21,8 +35,12 @@
 			}
 			p.say();
 			p2.say();
-			console.dir(p);
-			//console.log(p)
+			//console.dir(p);
+			//console.log(p);
+			
+			var s = new String('123456789');
+			s.name = 'han';
+			console.log(s)
 		</script>
 	</body>
 </html>

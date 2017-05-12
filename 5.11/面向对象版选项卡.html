@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		#box div,#box2 div{
+			width: 100px;
+			height: 100px;
+			border: 2px solid #FF1493;
+			display: none;
+		}
+		.active{
+			background: green;
+		}
+		#box .show,#box2 .show{
+			display: block;
+		}
+	</style>
+	<body>
+		<div id="box">
+			<input type="button" value="按钮1" class="active"/>
+			<input type="button" value="按钮2" />
+			<input type="button" value="按钮3" />
+			<div class="show">111111</div>
+			<div>222222</div>
+			<div>333333</div>
+		</div>
+		<div id="box2">
+			<input type="button" value="按钮1" class="active"/>
+			<input type="button" value="按钮2" />
+			<input type="button" value="按钮3" />
+			<div class="show">111111</div>
+			<div>222222</div>
+			<div>333333</div>
+		</div>
+		<input type="button" value="关闭第一个自动播放" id="btn1"/>
+		<input type="button" value="打开第二个自动播放"id="btn2"/>
+		<input type="button" value="全部自动播放"id="btn3"/>
+		<input type="button" value="点击反向开"id="btn4"/>
+		<script>
+//			var box = document.getElementById('box');
+//			var btns = box.getElementsByTagName('input');
+//			var div = box.getElementsByTagName('div');
+//			
+//			
+//			
+//			
+//			for(var i=0;i<btns.length;i++){
+//				btns[i].index = i;
+//				btns[i].onclick = function(){
+//					for(var i=0;i<btns.length;i++){
+//						btns[i].className = '';
+//					}
+//					this.className = 'active';
+//					for(var i=0;i<div.length;i++){
+//						div[i].className = '';
+//					}
+//					div[this.index].className = 'show';
+//					
+//				}
+//			}
+
+
+			//1.自动播放;
+			
+			
+			function Tab(box){
+				this.box = document.getElementById(box);
+				this.btns = this.box.getElementsByTagName('input');
+				this.div = this.box.getElementsByTagName('div');
+				this.timer = null;
+				this.num = 0;
+				this.init();
+			}
+			
+			Tab.prototype.init = function(){
+				var _this = this;
+				for(var i=0;i<this.btns.length;i++){
+					this.btns[i].index = i;
+					this.btns[i].onclick = function(){
+						_this.change(this.index);
+					}
+				}
+			}
+			Tab.prototype.change = function(that){
+				for(var i=0;i<this.btns.length;i++){
+					this.btns[i].className = '';
+					this.div[i].className = '';
+				}
+				this.btns[that].className = 'active';
+				this.div[that].className = 'show';
+			}
+			Tab.prototype.autoPlay = function(){
+				var _this = this;
+				clearInterval(this.timer);
+				this.timer = setInterval(function(){
+					_this.num ++;
+					_this.change(_this.num%=3);
+				},1000)
+			}
+			Tab.prototype.stop = function(){
+				clearInterval(this.timer);
+				this.timer = null;
+			}
+			Tab.prototype.isPlay = function(){
+				return !!this.timer;
+			}
+			var t = new Tab('box');
+			var t2 = new Tab('box2');
+			t.autoPlay();
+			//t2.autoPlay();
+			
+			var btn1 = document.getElementById('btn1');
+			var btn2 = document.getElementById('btn2');
+			var btn3 = document.getElementById('btn3');
+			var btn4 = document.getElementById('btn4');
+			//点击第一个
+			btn1.onclick = function(){
+				t.stop();
+			}
+			//点击第二个
+			btn2.onclick = function(){
+				t2.autoPlay();
+			}
+			//点击第三个
+			btn3.onclick = function(){
+				t.autoPlay();
+				t2.autoPlay();
+			}
+			btn4.onclick = function(){
+				if(t.isPlay()){
+					t.stop();
+				}else{
+					t.autoPlay();
+				}
+				if(t2.isPlay()){
+					t2.stop();
+				}else{
+					t2.autoPlay();
+				}
+			}
+		</script>
+	</body>
+</html>

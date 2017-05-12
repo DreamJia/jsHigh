@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				
+			}
+			#box{
+				width: 500px;
+				height: 600px;
+				margin: 20px auto;
+				box-shadow: 0 0 20px #999;
+			}
+			.qq,.email,.birthday,.tel{
+				margin-bottom: 50px;
+			}
+			label{
+				display: inline-block;
+				width: 100px;
+				margin-left: 50px;
+				font-size: 20px;
+				text-shadow: 2px 2px 5px greenyellow;
+				font-weight: 500;
+				
+			}
+			.txt{
+				margin-left: 20px;
+				width: 220px;
+				height: 30px;
+				border: 2px solid #999999;
+				border-radius: 5px;
+				font-size: 16px;
+				color: #666;
+			}
+			.tj{
+				width: 150px;
+				height: 40px;
+				background: #ccc;
+				border-radius: 5px;
+				margin-left: 200px;
+			}
+			header{
+				width: 100%;
+				height: 80px;
+				line-height: 80px;
+				font-size: 26px;
+				font-weight: 600;
+				text-align: center;
+				color: deepskyblue;
+				margin-bottom: 20px;
+			}
+			.shad{
+				box-shadow: 0 0 10px deeppink;
+				border-color: #fff;
+			}
+			.succ{
+				box-shadow: 0 0 10px green;
+				border-color: #fff;
+			}
+			img{
+				vertical-align: middle;
+			}
+			.success{
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<header>Personal Information</header>
+			<form>
+				<div class="qq">
+					<label>QQ号</label>
+					<input type="text" name="" id="" value="" class="txt" />
+					<img src="" />
+				</div>
+				<div class="email">
+					<label>邮 箱</label>
+					<input type="text" name="" id="" value="" class="txt" />
+					<img src="" />
+				</div>
+				<div class="birthday">
+					<label>生 日</label>
+					<input type="text" name="" id="" value="" class="txt" />
+					<img src="" />
+				</div>
+				<div class="tel">
+					<label>手机号</label>
+					<input type="text" name="" id="" value="" class="txt" />
+					<img src="" />
+				</div>
+				<div class="submit">
+					<input type="submit" name="btn" value="注册" class="tj" disabled="disabled"/>
+				</div>
+			</form>
+		</div>
+		<script>
+			//构造函数
+			function GetEle(id){
+				this.box = document.getElementById(id);
+				this.txt = this.box.getElementsByClassName('txt');
+				this.form = this.box.getElementsByTagName('form')[0];
+				this.pic = ['img/delete_fill.png','img/success_fill.png'];
+				this.img = this.box.getElementsByTagName('img');
+				this.init();
+				//匹配qq
+				this.reg1 = /^[1-9]\d{4,10}$/;
+				//匹配邮箱
+				this.reg2 = /^[a-zA-Z]\w{5,15}@[a-zA-Z0-9]{2,8}\.(com|cn|net)$/;
+				//匹配生日
+				this.reg3 = /^(?:(?!0000)[0-9]{4}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[0-9]{2}(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)-02-29)$/;
+				//匹配手机号
+				this.reg4 = /^1(3|4|5|7|8)\d{9}$/;
+			}
+			
+			GetEle.prototype.init = function(){
+				var _this = this;
+				for(var i=0;i<this.txt.length;i++){
+					this.txt[i].on = false;
+					this.txt[i].onfocus = function(){
+						for(var i=0;i<_this.txt.length;i++){
+							_this.txt[i].className = 'txt';
+						}
+						this.className = 'txt shad';
+					}
+				}
+			}
+			var p = new GetEle('box');
+			
+			GetEle.prototype.vail = function(){
+				var _this = this;
+				this.txt[0].oninput = function(){
+					var val1 = this.value;
+					if(_this.reg1.test(val1)){
+						_this.img[0].src = _this.pic[1];
+						this.on = true;
+					}else{
+						_this.img[0].src = _this.pic[0];
+						this.on = false;
+					}
+				}
+				this.txt[1].oninput = function(){
+					var val1 = this.value;
+					if(_this.reg2.test(val1)){
+						_this.img[1].src = _this.pic[1];
+						this.on = true;
+					}else{
+						_this.img[1].src = _this.pic[0];
+						this.on = false;
+					}
+				}
+				this.txt[2].oninput = function(){
+					var val1 = this.value;
+					if(_this.reg3.test(val1)&&(new Date(val1)<new Date)){
+						_this.img[2].src = _this.pic[1];
+						this.on = true;
+					}else{
+						_this.img[2].src = _this.pic[0];
+						this.on = false;
+					}
+				}
+				this.txt[3].oninput = function(){
+					var val1 = this.value;
+					if(_this.reg4.test(val1)){
+						_this.img[3].src = _this.pic[1];
+						this.on = true;
+					}else{
+						_this.img[3].src = _this.pic[0];
+						this.on = false;
+					}
+				}
+			}
+			p.vail();
+			
+			//验证qq
+//			txt[0].oninput = function(){
+//				var val1 = this.value;
+//				if(/^[1-9]\d{4,10}$/.test(val1)){
+//					img[0].src = pic[1];
+//					this.on = true;
+//					
+//				}else{
+//					img[0].src = pic[0];
+//					this.on = false;	
+//				}
+//				enroll()
+//			}
+//			//验证邮箱
+//			txt[1].oninput = function(){
+//				var val2 = this.value;
+//				if(/^[a-zA-Z]\w{5,15}@[a-zA-Z0-9]{2,8}\.(com|cn|net)$/.test(val2)){
+//					img[1].src = pic[1];
+//					this.on = true;
+//				}else{
+//					img[1].src = pic[0];
+//					this.on = false;
+//				}
+//				enroll()
+//			}
+//			//验证生日
+//			
+//			
+//			var reg = /^(?:(?!0000)[0-9]{4}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[0-9]{2}(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)-02-29)$/;
+//			txt[2].oninput = function(){
+//				var val3 = this.value;
+//				if(reg.test(val3) && (new Date(val3)<new Date)){
+//					img[2].src = pic[1];
+//					this.on = true;	
+//				}else{
+//					img[2].src = pic[0];
+//					this.on = false;	
+//				}
+//				enroll()
+//			}
+//			
+//			//验证手机号
+//			txt[3].oninput = function(){
+//				var val4 = this.value;
+//				if(/^1(3|4|5|7|8)\d{9}$/.test(val4)){
+//					img[3].src = pic[1];
+//					this.on = true;	
+//				}else{
+//					img[3].src = pic[0];
+//					this.on = false;	
+//				}
+//				enroll()
+//			}
+//			function enroll(){
+//				if(txt[0].on&&txt[1].on&&txt[2].on&&txt[3].on){
+//					form.btn.className = 'tj success';
+//					form.btn.disabled = '';
+//				}else{
+//					form.btn.className = 'tj';
+//				}
+//			}
+		</script>
+	</body>
+</html>
