@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        addEvent(document,'点击',function(){
+            console.log(1);
+        });
+       function addEvent(obj,evName,fn) {
+            obj.zdy = obj.zdy || {};
+            obj.zdy[evName] = obj.zdy[evName] || [];
+            obj.zdy[evName].push(fn);
+       }
+       function trigger(obj,evName){
+           if(!obj.zdy[evName])return;
+           obj.zdy[evName].forEach((e,i)=>{
+               e.call(obj);
+           })
+       }
+       document.onclick = function () {
+           trigger.call(this,this,'点击')
+       }
+        console.log(document.zdy)
+    </script>
+</body>
+</html>

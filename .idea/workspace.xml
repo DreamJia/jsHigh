@@ -51,11 +51,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="元素拖拽.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="元素拖拽.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/5.16/元素拖拽.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="423">
+            <state relative-caret-position="343">
               <caret line="90" column="22" lean-forward="false" selection-start-line="90" selection-start-column="22" selection-end-line="90" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="自定义事件.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/5.16/自定义事件.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="460">
+              <caret line="23" column="23" lean-forward="false" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -100,6 +110,7 @@
         <option value="$PROJECT_DIR$/5.11/元素拖拽.html" />
         <option value="$PROJECT_DIR$/5.15/元素拖拽.html" />
         <option value="$PROJECT_DIR$/5.16/元素拖拽.html" />
+        <option value="$PROJECT_DIR$/5.16/自定义事件.html" />
       </list>
     </option>
   </component>
@@ -291,12 +302,12 @@
       <workItem from="1494810679697" duration="3220000" />
       <workItem from="1494852452984" duration="8800000" />
       <workItem from="1494896805112" duration="3839000" />
-      <workItem from="1494939123336" duration="5685000" />
+      <workItem from="1494939123336" duration="7408000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44716000" />
+    <option name="totallyTimeSpent" value="46439000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -670,8 +681,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/5.16/元素拖拽.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
+        <state relative-caret-position="343">
           <caret line="90" column="22" lean-forward="false" selection-start-line="90" selection-start-column="22" selection-end-line="90" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/5.16/自定义事件.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="23" column="23" lean-forward="false" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
           <folding />
         </state>
       </provider>
