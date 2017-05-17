@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script src="jQuery.js"></script>
+    <script>
+       /*
+        1.使变量、参数、方法为私有化这个时候使用闭包 
+
+        2.
+
+        typeof window !== 'undefined'?window:this
+
+        看看typeof window之后是不是undefined，如果不是undefined
+        golbal为window，否则为this
+
+        因为jq不一定在浏览器环境下运行，
+        所以加了这个判断为了保证this指向当前环境下的全局对象
+
+        3.noGlobal（undefined）
+
+        undefined在低版本浏览器下会被修改，为了避免修改所以利用
+        函数参数的特性，不传参就为undefined
+
+
+        */
+       
+       
+       (function (global,factory) {
+           console.log(factory);
+           factory(global);
+       })(typeof window !== 'undefined'?window:this,function (global,noGlobal){
+           "use strict";
+           var undefined = 10;
+           alert(undefined);
+           console.log(undefined);
+       })
+    </script>
+</body>
+</html>

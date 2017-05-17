@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box"></div>
+    <div class="div"></div>
+    <div class="div-d"></div>
+    <div class="div-e"></div>
+    <div class="div-d"></div>
+    <script src="sizzle.js"></script>
+    <script>
+
+        /*
+         1.使变量、参数、方法为私有化这个时候使用闭包
+
+         2.无new化操作
+
+         typeof window !== 'undefined'?window:this
+
+         看看typeof window之后是不是undefined，如果不是undefined
+         golbal为window，否则为this
+
+         因为jq不一定在浏览器环境下运行，
+         所以加了这个判断为了保证this指向当前环境下的全局对象
+
+
+
+         1.不能直接在Jquery中new Jquery，因为死循环
+
+         2.目的：实例化对象上的方法又等同于Jquery原型下的方法
+
+
+         解决:
+         1.在构造函数下的原型上添加一个方法
+
+         2.让这个方法的原型等于Jquery的原型（保证这个方法的实例化对象可以直接使用Jquery原型下的方法）
+
+         3.return 这个方法的实例化对象
+
+
+         */
+        (function (global,factory) {
+            factory(global);
+        })(typeof window !== 'undefined'?window:this,function (global,noGlobal) {
+            const jQuery = function (select) {
+                return new jQuery.fn(select);
+            };
+            jQuery.prototype = {
+                constructor:jQuery,
+
+                fn:function (select) {
+                    let arr = Sizzle(select);
+                    //console.log(this)
+                    for(var i=0;i<arr.length;i++){
+                        this[i] = arr[i];
+                    }
+                    this.length = arr.length;
+                },
+                css:function () {
+                    console.log(arguments.length);
+                    console.log(this)
+                    //如果只传入一个
+                   if(arguments.length === 1){
+                       //如果传入的参数的第一个是对象，说明是设置
+                       if(typeof arguments[0] == 'object'){
+                           for(var i=0;i<this.length;i++){
+                               console.log(this[i]);
+                               for(var attr in arguments[0]){
+                                   this[i].style[attr] = arguments[0][attr];
+                               }
+                           }
+                       }else{
+                           if(this[0].style[arguments[0]]){
+                               return this[0].style[arguments[0]];
+                           }else{
+                               return getComputedStyle(this[0])[arguments[0]];
+                           }
+                       }
+                   }else if(arguments.length === 2){
+                       for(var i=0;i<this.length;i++){
+                           this[i].style[arguments[0]] = arguments[1];
+                       }
+                   }
+                }
+            };
+            //将挂在jQuery原型下的方法赋给jQuery下的方法；
+            jQuery.fn = jQuery.prototype.fn;
+            //将jQuery的原型赋给jQuery原型下的方法的原型；
+            jQuery.fn.prototype = jQuery.prototype;
+            global.$ = jQuery;
+        });
+
+        var $div = $('div');
+        //console.log($div);
+        $div.css({
+            'width':'200px',
+            'height':'200px',
+            'background':'red',
+            'border':'2px solid green'
+        });
+    </script>
+</body>
+</html>
