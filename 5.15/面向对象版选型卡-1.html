@@ -81,6 +81,7 @@
         }
     };
     Tab.prototype.change = function (that) {
+        console.log(this)
         for(var i=0;i<this.btns.length;i++){
             this.btns[i].className = this.divs[i].className = '';
         }

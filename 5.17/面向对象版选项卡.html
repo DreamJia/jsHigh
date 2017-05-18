@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #box div{
+            width:150px;
+            height:150px;
+            border:2px solid #FF1493;
+            display: none;
+        }
+        .active{
+            background: #ff0;
+        }
+        #box .show{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+
+    </div>
+<script>
+    function Tab(id,json) {
+       this.box = document.getElementById(id);
+       this.btn = null;
+       this.div = null;
+       this.settings = {
+           btn:['社会','经济','历史','国际','汽车'],
+           con:[
+               '国务院召开会议，养老保险基数继续上调',
+               '美元再次贬值',
+               '第二次直奉战争奉军大胜',
+               '一带一路国际峰会在京召开',
+               '长安福特锐界正式在杭州量产'
+           ],
+           event:'onclick'
+       };
+       for(var attr in json){
+           this.settings[attr] = json[attr];
+       }
+       this.creatBtn();
+       this.creatDiv();
+       this.init();
+    }
+    Tab.prototype.creatBtn = function () {
+        for(var i=0;i<this.settings.btn.length;i++){
+            var btn = document.createElement('input');
+            btn.type = 'button';
+            btn.value = this.settings.btn[i];
+            if(i==0){
+                btn.className = 'active';
+            }
+            this.box.appendChild(btn);
+        }
+        this.btn = this.box.getElementsByTagName('input');
+    };
+    Tab.prototype.creatDiv = function () {
+        for(var i=0;i<this.settings.con.length;i++){
+            var div = document.createElement('div');
+            div.innerHTML = this.settings.con[i];
+            if(i==0){
+                div.className = 'show';
+            }
+            this.box.appendChild(div);
+        }
+        this.div = this.box.getElementsByTagName('div');
+    };
+    Tab.prototype.init = function () {
+        var _this = this;
+        for(var i=0;i<this.btn.length;i++){
+            this.btn[i].index = i;
+            this.btn[i][this.settings.event] = function () {
+                _this.change(this)
+            }
+        }
+    };
+    Tab.prototype.change = function (that) {
+        for(var i=0;i<this.btn.length;i++){
+            this.btn[i].className = this.div[i].className = '';
+        }
+
+        that.className = 'active';
+        this.div[that.index].className = 'show';
+    }
+    var p = new Tab('box',{
+        btn:['社会','体育','教育','经济','娱乐','北京','汽车'],
+        con:[
+            '社保基金基数今年在调整',
+            '中国队大胜韩国队',
+            'js语言纳入高中课程',
+            '美联储将归属于美国美国中央银行',
+            '继文章之后，白百何陷入出轨门',
+            '5月14日--5月15日,一带一路国际峰会在京召开',
+            '长安福特蒙迪欧正式量产'
+        ],
+        event:'onclick'
+    });
+</script>
+</body>
+</html>
