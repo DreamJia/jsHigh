@@ -31,11 +31,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="表格操作-数据版.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="表格操作-数据版.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/5.20/表格操作-数据版.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-77">
               <caret line="302" column="40" lean-forward="false" selection-start-line="302" selection-start-column="40" selection-end-line="302" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="粒子效果.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/5.20/粒子效果.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="83">
+              <caret line="89" column="52" lean-forward="false" selection-start-line="89" selection-start-column="52" selection-end-line="89" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -123,6 +133,7 @@
         <option value="$PROJECT_DIR$/5.20/jQuery.js" />
         <option value="$PROJECT_DIR$/5.20/表格操作.html" />
         <option value="$PROJECT_DIR$/5.20/表格操作-数据版.html" />
+        <option value="$PROJECT_DIR$/5.20/粒子效果.html" />
       </list>
     </option>
   </component>
@@ -343,12 +354,12 @@
       <workItem from="1495070296449" duration="5238000" />
       <workItem from="1495112646657" duration="4620000" />
       <workItem from="1495156045517" duration="4358000" />
-      <workItem from="1495257959223" duration="43249000" />
+      <workItem from="1495257959223" duration="45746000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="127269000" />
+    <option name="totallyTimeSpent" value="129766000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -360,7 +371,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1378" height="735" extended-state="1" />
+    <frame x="-7" y="0" width="1378" height="735" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13208956" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -412,13 +423,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/5.9/enroll.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/5.9/enroll(面向对象版).html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3160">
@@ -570,6 +574,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20">
           <caret line="3" column="695" lean-forward="false" selection-start-line="3" selection-start-column="695" selection-end-line="3" selection-end-column="695" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -751,6 +756,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-77">
           <caret line="302" column="40" lean-forward="false" selection-start-line="302" selection-start-column="40" selection-end-line="302" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/5.20/粒子效果.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="89" column="52" lean-forward="false" selection-start-line="89" selection-start-column="52" selection-end-line="89" selection-end-column="52" />
           <folding />
         </state>
       </provider>
