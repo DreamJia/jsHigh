@@ -125,11 +125,17 @@
         this.init();
     }
     GetEle.prototype.init = function () {
+        var _this = this;
         for(var i=0;i<this.txt.length;i++){
+            this.txt[i].index = i;
             this.txt[i].oninput = function () {
-                
+                var val = this.value;
+                _this.vail(this,val)
             }
         }
+    }
+    GetEle.prototype.vail = function (that,val) {
+        
     }
 </script>
 </body>

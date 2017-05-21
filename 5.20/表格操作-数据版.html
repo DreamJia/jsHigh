@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <style>
+        #box {
+            width: 500px;
+            height: 600px;
+            box-shadow: 0 0 10px green;
+            margin: 20px auto;
+            box-sizing: border-box;
+            padding-top: 20px;
+        }
+
+        #top {
+            width: 100%;
+            height: 200px;
+            box-sizing: border-box;
+            padding: 20px;
+        }
+
+        #top div {
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            padding: 0 10px;
+            height: 35px;
+            background: lightgreen;
+            border-radius: 5px;
+            color: #fff;
+            font-family: "新宋体";
+        }
+
+        .btn[value="提交"] {
+            width: 80px;
+        }
+
+        .btn[value="排序"] {
+            background: cadetblue;
+        }
+
+        .btn[value="批量删除"] {
+            background: red;
+        }
+
+        .txt {
+            width: 200px;
+            height: 26px;
+            border: 1px solid #333333;
+            border-radius: 5px;
+        }
+
+        select {
+            padding: 0 10px;
+            height: 30px;
+            border: 2px solid green;
+        }
+
+        label {
+            font-size: 16px;
+        }
+
+        table {
+            border: 1px solid #fff;
+            border-right: 0;
+            /*border-bottom: none;*/
+            margin: 0 auto;
+            font-family: '新宋体';
+            overflow: auto;
+        }
+
+        thead {
+            background: mediumseagreen;
+        }
+
+        table thead th, table tbody td {
+            text-align: center;
+            line-height: 25px;
+            border-right: 1px solid #fff;
+        }
+
+        tbody tr:nth-child(odd) {
+            background: lightskyblue;
+        }
+
+        tbody tr:nth-child(even) {
+            background: palegreen;
+        }
+
+        .tdbtn {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <div id="top">
+        <div>
+            <label>请输入姓名</label>
+            <input type="text" class="txt" name="name"/>
+        </div>
+        <div>
+            <label>请选择性别</label>
+            <select name="sex">
+                <option value="男">男</option>
+                <option value="女">女</option>
+            </select>
+        </div>
+        <div>
+            <label>请输入年龄</label>
+            <input type="text" class="txt" name="age"/>
+        </div>
+        <input type="button" value="提交" class="btn"/>
+        <select id="method">
+            <option value="age">按年龄</option>
+            <option value="id">按编号</option>
+        </select>
+        <select id="order">
+            <option value="up">升序</option>
+            <option value="down">降序</option>
+        </select>
+        <input type="button" value="排序" class="btn">
+        <input type="button" value="批量删除" class="btn">
+    </div>
+    <table width="80%" id="tab1" border="0" cellspacing="0">
+        <thead>
+        <tr>
+            <th>全选 <input type="checkbox" id="checkAll"></th>
+            <th>编号</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>年龄</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+<script src="jQuery.js"></script>
+<script>
+
+    var data = [
+        {
+            'id' : 1,
+            'username' : 'LEO',
+            'age' : 36,
+            'sex' : '男'
+        },
+        {
+            'id' : 2,
+            'username' : 'MOMO',
+            'age' : 16,
+            'sex' : '男'
+        },
+        {
+            'id' : 3,
+            'username' : 'DUODUO',
+            'age' : 29,
+            'sex' : '男'
+        },
+        {
+            'id' : 4,
+            'username' : '勇升',
+            'age' : 46,
+            'sex' : '男'
+        },
+        {
+            'id' : 5,
+            'username' : '小美',
+            'age' : 40,
+            'sex' : '女'
+        }
+    ];
+    const $name = $('.txt[name="name"]');
+    const $age = $('.txt[name="age"]');
+    const $sex = $('select[name="sex"]');
+    //拿到数据渲染一行数据
+    function creat(Data) {
+        let html = '<input type="button" value="上移" class="tdbtn">';
+        html += '<input type="button" value="下移" class="tdbtn">';
+        html += '<input type="button" value="删除" class="tdbtn">';
+        var tr = $('<tr>');
+        for(var i=0;i<$('th').size();i++){
+            var td = $('<td>');
+            switch(i){
+                case 0:
+                    td.html('<input type="checkbox" class="check">');
+                break;
+                case 1:
+                    td.html('<b class="serial">'+Data.id+'</b>');
+                break;
+                case 2:
+                    td.html(Data.username);
+                break;
+                case 3:
+                    td.html(Data.sex);
+                break;
+                case 4:
+                    td.html('<b class="toAge">'+Data.age+'</b>');
+                break;
+                case 5:
+                    td.html(html);
+                break;
+            }
+            tr.append(td);
+        }
+        $('tbody').append(tr);
+        $('.tdbtn').click(function () {
+            var index = $(this).eq(0).index();
+            var tr = $(this).eq(0).parents('tr');
+            switch (index) {
+                case 0:
+                    //上移
+                    tr.after(tr.prev());
+                    break;
+                case 1:
+                    //下移
+                    tr.before(tr.next());
+                    break;
+                case 2:
+                    //删除
+                    tr.remove();
+                    removeData(Data.id);
+                    console.log(data,Data.id);
+                    break;
+                default:
+                    break;
+            }
+        })
+
+    }
+
+    //根据Id删除数据
+    function removeData(id){
+        data.forEach(function(a,b){
+            if(a.id == id){
+                data.splice(b,1);
+            }
+        })
+    }
+    //渲染结构
+    data.forEach(function (a) {
+        creat(a);
+    });
+    //找到最大的id;
+    function maxId(){
+        var max = -Infinity;
+        data.forEach(function(a){
+            if(a.id>max){
+                max = a.id;
+            }
+        });
+        return max;
+    }
+    //创建数据
+    var num = maxId();
+    $('.btn[value=提交]').click(function () {
+        if($name.val() == '' || $age.val() == ''){
+            alert('输入的姓名或年龄不能为空');
+        }else{
+            var j = {
+                'id':++num,
+                'username':$name.val(),
+                'age':$age.val(),
+                'sex':$sex.val()
+            };
+            data.push(j);
+            creat(j);
+        }
+    });
+    //全选
+    $('#checkAll').click(function () {
+        if ($(this).is(':checked')) {
+            $('.check').prop('checked', true);
+        } else {
+            $('.check').removeProp('checked');
+        }
+    });
+    $(document).on('click', '.check', function () {
+        //console.log($('input.check:checked').size())
+        if ($('input.check:checked').size() == $('input.check').size()) {
+            $('#checkAll').prop('checked', true);
+        } else {
+            $('#checkAll').removeProp('checked');
+        }
+    });
+    $('.btn[value=批量删除]').click(function () {
+        //console.log($('input.check:checked').size());
+        for(var i=0;i<$('input.check:checked').size();i++){
+            removeData($('input.check:checked')[i].id);
+        }
+        console.log(data);
+        $('input.check:checked').parents('tr').remove();
+        $('#checkAll').removeProp('checked');
+    });
+
+    //排序
+    $('.btn[value=排序]').click(function () {
+        //按照编号排序
+        var method = $('#method').val();
+        if (method == 'id') {
+            rank($('b.serial'));
+        }
+        if(method == 'age'){
+            rank($('b.toAge'));
+        }
+    });
+    //排序函数
+    function rank(q) {
+        var elArr = [];
+        $.each(q, function (a, b) {
+            elArr.push([q.eq(a).text(), $(b).parents('tr').html()]);
+        });
+        elArr.sort(function (a, b) {
+            if($('#order').val() == 'down'){
+                return b[0] - a[0];
+            }else{
+                return a[0] - b[0];
+            }
+        });
+        var s = '';
+        for(var i=0;i<$('tbody tr').size();i++){
+            s +='<tr>'+elArr[i][1]+'</tr>';
+        }
+        $('tbody').html(s);
+    }
+
+</script>
+</body>
+</html>
