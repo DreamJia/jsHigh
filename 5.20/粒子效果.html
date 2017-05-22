@@ -87,7 +87,7 @@
 
     // $("body").append(tela);
     $("body").append(c3.canvas);
-    writeText(c2.canvas, c2.context, "某年某月的某一天\n只是因为多看了你一眼\nI like you");
+    writeText(c2.canvas, c2.context, "2017年2月8日\n只是因为多看了你一眼\nI like you");
 
     var Particle = function () {
         function Particle(canvas, options) {
@@ -102,7 +102,7 @@
             this.w = $(window).width();
             this.h = $(window).height();
             this.radius = 0.5 + Math.random() * 20;
-            this.color = this.radius > 5 ? "blue" : "pink"; //this.randomColor()
+            this.color = this.radius > 5 ? "red" : "pink"; //this.randomColor()
         }
 
         Particle.prototype.randomColor = function randomColor() {
