@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			html{
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="ca"></canvas>
+		<script type="text/javascript">
+			var ca = document.getElementById('ca');
+			var context = ca.getContext('2d');
+			var W = window.innerWidth;
+			var H = window.innerHeight;
+			//给canvas设置宽高
+			ca.width = W;
+			ca.height = H;
+			var fontSize = 20;
+			//根据字体大小算出当前窗口有多少列文字；
+			var columns = Math.floor(W/fontSize);
+			//记录每列文字的y坐标
+			var arr = [];
+			for(var i=0;i<columns;i++){
+				arr.push(0);
+			}
+			var str = '02  01  001 010 10200 001100 011 01  01';
+			
+			
+			function draw(){
+				//设置画布颜色
+				context.fillStyle = "rgba(0,0,0,0.05)";
+				//画一个方块
+				context.fillRect(0,0,W,H);
+				//设置字体样式
+				context.font = "800 "+fontSize+"px 微软雅黑";
+				//设置字体颜色
+				context.fillStyle = "#0c3";
+				
+				//写入画布
+				for(var i=0;i<columns;i++){
+					var index = Math.floor(Math.random()*str.length);
+					var x = i*fontSize;
+					var y = arr[i]*fontSize;
+					context.fillText(str[index],x,y);
+					if(y>=ca.height&&Math.random()>0.99){
+						arr[i]=0;
+					}
+					arr[i]++;
+				}
+			}
+			setInterval(draw,30);
+		</script>
+	</body>
+</html>

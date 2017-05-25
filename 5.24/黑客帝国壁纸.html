@@ -9,6 +9,7 @@
 				padding: 0;
 			}
 			html{
+				/*为了使超出后不出滚动条*/
 				overflow: hidden;
 			}
 		</style>
@@ -42,6 +43,7 @@
 		//fillText(str,x,y),去更改y轴的坐标
 		//绘画函数
 		function draw(){
+			//给canvas设置背景颜色
 			context.fillStyle = "rgba(0,0,0,0.05)";
 			context.fillRect(0,0,W,H);
 			//给字体设置样式
@@ -52,8 +54,11 @@
 			for(var i=0;i<colunms;i++){
 				//根据字符串长度生成随机数
 				var index = Math.floor(Math.random()*str.length);
+				//x轴的随机位置
 				var x = i * fontSize;
+				//y轴的随机位置
 				var y = drops[i] * fontSize;
+				//fillText(在画布输出的文字，开始绘制文本的x轴坐标，开始绘制文本的y轴坐标)
 				context.fillText(str[index],x,y);
 				//如果要改变时间，肯定要每次的起点
 				if(y>=canvas.height && Math.random()>0.99){
@@ -62,12 +67,12 @@
 				drops[i]++;
 			}
 		}
-		function randColor(){
-			var r = Math.floor(Math.random()*256);
-			var g = Math.floor(Math.random()*256);
-			var b = Math.floor(Math.random()*256);
-			return "rgb('+ r +','+ g +','+ b +')";
-		}
+//		function randColor(){
+//			var r = Math.floor(Math.random()*256);
+//			var g = Math.floor(Math.random()*256);
+//			var b = Math.floor(Math.random()*256);
+//			return "rgb('+ r +','+ g +','+ b +')";
+//		}
 		setInterval(draw,50);
 	</script>
 </html>

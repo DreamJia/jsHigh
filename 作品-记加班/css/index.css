@@ -1,10 +1,84 @@
 #box {
   width: 100%;
-  height: 43rem;
+  height: 28.75rem;
   background: yellow;
 }
 .header {
   width: 100%;
-  height: 20rem;
-  background: red;
+  height: 15rem;
+  background: url(../img/sunshine.png) 0 0 no-repeat;
+  position: relative;
+}
+.header h2 {
+  width: 100%;
+  height: 3rem;
+  text-align: center;
+  color: #fff;
+  font-size: 0.65rem;
+  line-height: 2.5rem;
+}
+.header .set {
+  width: 1.2rem;
+  height: 1.2rem;
+  position: absolute;
+  right: 0.5rem;
+  top: 0.875rem;
+}
+.salary {
+  width: 8rem;
+  height: 2.175rem;
+  border: 0.075rem solid #ffffff;
+  margin: 2rem auto;
+  border-radius: 0.125rem;
+  background: rgba(0, 0, 0, 0.3);
+}
+.salary a {
+  display: inline-block;
+  width: 100%;
+  height: 2.175rem;
+  text-align: center;
+  font-size: 0.7rem;
+  color: #fff;
+  line-height: 2.175rem;
+}
+.hfoot {
+  width: 100%;
+  height: 3.75rem;
+  background: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.hfoot li {
+  position: absolute;
+  width: 32%;
+  height: 3.75rem;
+}
+.hfoot li:nth-child(1) {
+  left: 0;
+  top: 0;
+  background: url(../img/shu.png) right center no-repeat;
+}
+.hfoot li:nth-child(2) {
+  left: 34%;
+  top: 0;
+  background: url(../img/shu.png) right center no-repeat;
+}
+.hfoot li:nth-child(3) {
+  left: 68%;
+  top: 0;
+}
+.hfoot li i,
+.hfoot li em {
+  color: #fff;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  line-height: 1.875rem;
+}
+.hfoot li i {
+  font-size: 1.25rem;
+}
+.hfoot li em {
+  font-size: 0.75rem;
 }

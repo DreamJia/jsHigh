@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				background: #000;
+			}
+			span{
+				color:#fff;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="can" width="500" height="500">
+			<span>不支持canvas</span>
+		</canvas>
+		<script type="text/javascript">
+			var can = document.getElementById('can');
+			var context = can.getContext('2d');
+			context.fillStyle = 'green';
+			context.fillRect(0,0,500,500)
+			
+		</script>
+	</body>
+</html>
