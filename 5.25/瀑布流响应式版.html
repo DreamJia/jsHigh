@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				list-style:none;
+			}
+			ul{
+				margin: 0 auto;
+			}
+			li{
+				width: 236px;
+				float: left;
+				margin-right: 10px;
+			}
+			.pic{
+				width:236px;
+				box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+				overflow: hidden;
+				margin-top: 10px;
+			}
+			img{
+				width: 236px;
+				border: none;
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			
+		</ul>
+		<script src="jQuery.js"></script>
+		<script>
+			//根据屏幕宽度生成li;
+			var n = Math.floor(($(window).width()-10)/246);
+			creatLi(n);
+			window.onresize = function(){
+				var n = Math.floor(($(window).width()-10)/246);
+				if(n<1){
+					n=1;
+				}
+				$('ul').html('');
+				creatLi(n);
+				creatPic();
+			}
+			function creatLi(n){
+				for(var i=0;i<n;i++){
+					var li = $('<li>');
+					$('ul').append(li);
+				}
+			}
+			creatPic()
+			function creatPic(){
+				$.ajax({
+					type:"get",
+					url:"https://www.wookmark.com/api/json/popular?&callback=?",
+					async:true,
+					dataType:'jsonp',
+					success:function(arr){
+						$.each(arr, function(i,e) {
+							var div = $('<div class="pic">');
+							var img = $(`<img src="${e.preview}" />`);
+							img[0].onload = function(){
+								div.append(img).appendTo($('li').eq(minHeight()));
+							}
+							
+						});
+					}
+				});
+			}
+			
+			//找到宽度最小的li
+			function minHeight(){
+				var max = Infinity;
+				var index = 0;
+				$('li').each(function(i,e){
+					if(e.scrollHeight<max){
+						max = e.scrollHeight;
+						index = i;
+					}
+				});
+				return index;
+			}
+		</script>
+	</body>
+</html>

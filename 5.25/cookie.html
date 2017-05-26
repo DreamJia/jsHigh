@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		用户名:
+		<br />
+		<input type="text" name="" id="user" value="" />
+		<br />
+		密码:
+		<br />
+		<input type="password" name="" id="pass" value="" />
+		<br />
+		<br />
+		<input type="button" name="btn" id="btn" value="登录" />
+		<script>
+			setCookie('dsdffsf',123123,1);
+			function setCookie(key,value,time){
+				var odate = new Date();
+				odate.setDate(odate.getDate()+time);
+				document.cookie = key+'='+value+';expires='+(time?odate:'');
+			}
+		</script>
+	</body>
+</html>
