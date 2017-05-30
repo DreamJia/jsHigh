@@ -9,43 +9,34 @@
 		</style>
 	</head>
 	<body>
-		<canvas id="can" width="" height=""></canvas>
+		<canvas id="can"></canvas>
 		<script type="text/javascript">
 			var can = document.getElementById('can');
+			//创建绘制环境
 			var context = can.getContext('2d');
 			var W = window.innerWidth;
 			var H = window.innerHeight;
-			//给画布添加
 			can.width = W;
 			can.height = H;
-			//设置字体大小
 			var fontSize = 20;
-			//计算列
 			var columns = Math.floor(W/fontSize);
-			//用于存放y轴位置
 			var arr = [];
 			for(var i=0;i<columns;i++){
 				arr.push(0);
 			}
-			var str = '858 758 35 4 89 384 8832 9332 0hfuhv uhvu fu gfub sh vb ';
-			//封一个函数
+			var str = "difvidv99877900987";
 			function draw(){
-				//给画布一个填充颜色
 				context.fillStyle = "rgba(0,0,0,0.05)";
-				//设置画布颜色
 				context.fillRect(0,0,W,H);
-				//设置字体样式
 				context.font = "800 "+fontSize+"px 微软雅黑";
-				//设置字体颜色
-				context.fillStyle = '#0c3';
-				
+				context.fillStyle = "#0c3";
+				//写入画布
 				for(var i=0;i<columns;i++){
 					var index = Math.floor(Math.random()*str.length);
 					var x = i*fontSize;
 					var y = arr[i]*fontSize;
-					//将文字写入画布
 					context.fillText(str[index],x,y);
-					if(y>can.height&&Math.random()>0.99){
+					if(y>=can.height&&Math.random()>0.99){
 						arr[i] = 0;
 					}
 					arr[i]++;

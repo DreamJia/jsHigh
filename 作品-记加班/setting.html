@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+	<link rel="stylesheet" type="text/css" href="css/setting.css"/>
+	<script type="text/javascript">
+		window.onload = function(){
+			var lis = document.getElementsByTagName('li');
+			for(var i=0;i<lis.length;i++){
+				lis[i].onclick = function(){
+					alert(this.innerHTML)
+				}
+			}
+		}
+		
+	</script>
+</head>
+<body>
+	<div id="box">
+		<h2>设&nbsp;&nbsp;置</h2>
+		<div class="con">
+			
+			<h3>功能(综合工时)</h3>
+			<ul>
+				<li><a href="#">工资设定</a></li>
+				<li><a href="#">考勤周期</a></li>
+				<li class="bor_none"><a href="#">月工作小时数</a></li>
+			</ul>
+			<h3>其他</h3>
+			<ul>
+				<li><a href="#">用户帮助</a></li>
+				<li><a href="#">意见反馈</a></li>
+				<li class="bor_none"><a href="#">关于我们</a></li>
+			</ul>
+		</div>
+	</div>
+	
+</body>
+</html>

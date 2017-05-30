@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 100%;
+				height: 80vh;
+				border: 5px solid #00BFFF;
+			}
+			#allmap{
+				width: 100%;
+				height: 80vh;
+			}
+			#l-map{height:300px;width:100%;}
+			#r-result{width:100%;}
+		</style>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=aiYyhCF6oDGbbm2XU3IucujlHRmlx11z"></script>
+	</head>
+	<body>
+		<h2>百度地图</h2>
+		<div id="box">
+			<div id="allmap"></div>
+			<div id="r-result">
+			<input type="button" onclick="add_control();" value="添加" />
+			<input type="button" onclick="delete_control();" value="删除" />
+	</div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	// 百度地图API功能
+	var map = new BMap.Map("allmap");    // 创建Map实例
+	map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);  // 初始化地图,设置中心点坐标和地图级别
+	map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
+	map.setCurrentCity("长春");          // 设置地图显示的城市 此项是必须设置的
+	map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+	
+	var top_left_control = new BMap.ScaleControl({anchor: BMAP_ANCHOR_TOP_LEFT});// 左上角，添加比例尺
+	var top_left_navigation = new BMap.NavigationControl();  //左上角，添加默认缩放平移控件
+	var top_right_navigation = new BMap.NavigationControl({anchor: BMAP_ANCHOR_TOP_RIGHT, type: BMAP_NAVIGATION_CONTROL_SMALL}); //右上角，仅包含平移和缩放按钮
+	/*缩放控件type有四种类型:
+	BMAP_NAVIGATION_CONTROL_SMALL：仅包含平移和缩放按钮；BMAP_NAVIGATION_CONTROL_PAN:仅包含平移按钮；BMAP_NAVIGATION_CONTROL_ZOOM：仅包含缩放按钮*/
+	
+	//添加控件和比例尺
+	function add_control(){
+		map.addControl(top_left_control);        
+		map.addControl(top_left_navigation);     
+		map.addControl(top_right_navigation);    
+	}
+	//移除控件和比例尺
+	function delete_control(){
+		map.removeControl(top_left_control);     
+		map.removeControl(top_left_navigation);  
+		map.removeControl(top_right_navigation); 
+	}
+	var mPoint = new BMap.Point(116.404, 39.915);  
+	map.enableScrollWheelZoom();
+	map.centerAndZoom(mPoint,15);
+	var circle = new BMap.Circle(mPoint,1000,{fillColor:"blue", strokeWeight: 1 ,fillOpacity: 0.3, strokeOpacity: 0.3});
+    map.addOverlay(circle);
+    var local =  new BMap.LocalSearch(map, {renderOptions: {map: map, autoViewport: false}});  
+    local.searchNearby('宾馆',mPoint,10);
+	
+	
+</script>

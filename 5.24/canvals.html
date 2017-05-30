@@ -16,30 +16,10 @@
 		var canvas = document.getElementById('canvas');
 		//绘制环境
 		var context = canvas.getContext('2d');
-//		//边框颜色
-//		context.strokeStyle = 'blue';
-//		//填充颜色
-//		context.fillStyle = 'red';
-//		//边框的宽度
-//		context.lineWidth = '10';
-//		//绘制边框
-//		context.strokeRect(50,50,100,100)
-//		//绘制方块 fillRect(x,y,,w,h);//默认是黑色，left，top分别从左上开始；
-//		context.fillRect(50.5,50.5,100,100);
-		/*
-		 * 连接线
-			beginPath();
-			moveTo();
-		*/
-		//开始点
-		context.beginPath();
-		context.moveTo(100,100)
-		context.lineTo(200,300);
-		context.lineTo(300,200);
-		context.closePath()
-		context.stroke();
-		
-		
-		
+		var str = 'cwafusdgfupwf';
+		//默认是黑颜色
+		//context.fillRect(0,0,300,300);
+		context.fillText(str,0,0);
+		context.fillStyle = '#fff'
 	</script>
 </html>

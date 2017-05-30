@@ -1,0 +1,173 @@
+@rem:40rem;
+#box{
+    width: 100%;
+    position: relative;
+    .header{
+        width: 100%;
+        line-height: 150/@rem;
+        font-size: 40/@rem;
+        border-bottom: .15rem solid #666;
+        #prev,#next,em{
+            display: inline-block;
+            width: 32%;
+        }
+        em{
+            text-align: center;
+        }
+        #next{
+            text-align: right;
+        }
+    }
+    .week{
+        width: 100%;
+        height: 100/@rem;
+        display: flex;
+        span{
+            flex: 1;
+            line-height: 80/@rem;
+            text-align: center;
+            line-height: 100/@rem;
+            font-size: 45/@rem;
+            color: #111111;
+        }
+    }
+    ul{
+        display: flex;
+        flex-flow: row wrap;
+        li{
+            width: 14.23%;
+            height: 150/@rem;
+            line-height: 80/@rem;
+            text-align: center;
+            font-size: 40/@rem;
+            border-radius: 5/@rem;
+            box-sizing: border-box;
+            border:.05rem solid #ccc;
+        }
+        li b{
+            color:#FF1493;
+        }
+    }
+    .shad{
+        width: 100%;
+        height: 100vh;
+        background: rgba(0,0,0,0.5);
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: none;
+    }
+    .record_hour{
+        width: 90%;
+        height: 800/@rem;
+        box-shadow: 0 0 .5rem #ccc;
+        background: #fff;
+        position: absolute;
+        left: 5%;
+        top: 20%;
+    }
+    .rh{
+        width: 100%;
+        height: 100/@rem;
+        border-bottom: .1rem solid #666;
+        position: relative;
+        //当前点击的日期
+        span{
+            width: 50%;
+            line-height: 100/@rem;
+            position: absolute;
+            left: 0;
+            top: 0; 
+            font-size: 40/@rem;           
+        }
+        //删除当前的数据
+        input{
+            position: absolute;
+            width: 10%;
+            height: 100/@rem;
+            right: 0;
+            top: 0;
+            background: url(../img/del.png) center center no-repeat;
+        }
+        
+    }
+    //工时
+    h4{
+        width: 100%;
+        line-height: 100/@rem;
+        text-align: center;
+        font-size: 50/@rem;    
+    }
+    ol{
+        width: 100%;
+        height: 300/@rem;
+        display: flex;
+        flex-flow: row wrap;
+        overflow-y: auto;
+        margin-bottom: 1rem;
+        li{
+            width: 15%;
+            line-height: 100/@rem;
+            border: .1rem solid #EDF3F8;
+            border-radius: 10/@rem;
+            text-align: center;
+            font-size: 30/@rem;
+            
+        }
+    }
+        .light{
+                background: #f37270;
+                color: #fff;
+            }
+    .class_choose{
+        width: 100%;
+        height: 100/@rem;
+        position: relative;
+        span{
+           width: 20%;
+           text-align: center;
+           line-height: 100/@rem; 
+           font-size: 44/@rem;
+           position: absolute;
+           left: 0;
+           top: 0;
+        }
+        em{
+            width:20%;
+            line-height: 100/@rem;
+            position: absolute;
+            font-size: 40/@rem;
+            right: 0;
+            top: 0;
+            color: #F37270;
+            text-align: center;
+        }
+    }
+    .save{
+        width: 100%;
+        height: 120/@rem;
+        border-top: .1rem solid #999;
+        position: absolute;
+        bottom: 0;
+        input[value="取消"]{
+            display: inline-block;
+            width: 49%;
+            line-height:120/@rem;
+            text-align: center;
+            border-right: .1rem solid #999;
+        }
+        input[value="保存"]{
+            display: inline-block;
+            width: 49%;
+            line-height:120/@rem;
+            text-align: center;
+            color: #f48482;
+        }
+    }
+}
+.gray{
+    color: #ccc;
+}
+.active{
+    background: #ff0;
+}

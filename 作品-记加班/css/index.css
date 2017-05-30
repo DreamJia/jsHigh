@@ -1,17 +1,15 @@
 #box {
   width: 100%;
-  height: 28.75rem;
-  background: yellow;
 }
 .header {
   width: 100%;
-  height: 15rem;
+  height: 12.5rem;
   background: url(../img/sunshine.png) 0 0 no-repeat;
   position: relative;
 }
 .header h2 {
   width: 100%;
-  height: 3rem;
+  height: 2.5rem;
   text-align: center;
   color: #fff;
   font-size: 0.65rem;
@@ -24,7 +22,7 @@
   right: 0.5rem;
   top: 0.875rem;
 }
-.salary {
+.header .salary {
   width: 8rem;
   height: 2.175rem;
   border: 0.075rem solid #ffffff;
@@ -32,7 +30,7 @@
   border-radius: 0.125rem;
   background: rgba(0, 0, 0, 0.3);
 }
-.salary a {
+.header .salary a {
   display: inline-block;
   width: 100%;
   height: 2.175rem;
@@ -81,4 +79,106 @@
 }
 .hfoot li em {
   font-size: 0.75rem;
+}
+.con {
+  width: 100%;
+}
+.con .date {
+  width: 100%;
+  height: 2.5rem;
+  position: relative;
+}
+.con .date h2 {
+  width: 30%;
+  line-height: 2.5rem;
+  font-size: 0.65rem;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.con .date .btn {
+  width: 30%;
+  line-height: 2.5rem;
+  font-size: 0.65rem;
+  font-weight: 600;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: #fff;
+}
+.con .record {
+  width: 90%;
+  line-height: 2.5rem;
+  background: #f37270;
+  color: #fff;
+  font-size: 0.75rem;
+  text-align: center;
+  margin-left: 5%;
+  margin-bottom: 5%;
+}
+.con .calendar {
+  width: 90%;
+  height: 2.5rem;
+  border: 0.05rem solid #666666;
+  border-left: 0.125rem solid #f37270;
+  box-sizing: border-box;
+  border-radius: 0.125rem;
+  margin-left: 5%;
+  position: relative;
+  margin-bottom: 3%;
+}
+.con .calendar .left {
+  width: 30%;
+  height: 100%;
+  position: absolute;
+  text-align: center;
+  line-height: 2.4rem;
+  font-size: 0.65rem;
+  left: 0;
+  top: 0;
+  background: url(../img/date-.png) 5% center no-repeat;
+}
+.con .calendar .right {
+  width: 30%;
+  height: 100%;
+  position: absolute;
+  text-align: center;
+  line-height: 2.4rem;
+  font-size: 0.65rem;
+  right: 0;
+  top: 0;
+  color: #ccc;
+}
+.con .stat {
+  width: 90%;
+  height: 2.5rem;
+  border: 0.05rem solid #666666;
+  border-left: 0.125rem solid #f37270;
+  box-sizing: border-box;
+  border-radius: 0.125rem;
+  margin-left: 5%;
+  position: relative;
+}
+.con .stat .left {
+  width: 30%;
+  height: 100%;
+  position: absolute;
+  text-align: center;
+  line-height: 2.4rem;
+  font-size: 0.65rem;
+  left: 0;
+  top: 0;
+  background: url(../img/sum.png) 5% center no-repeat;
+}
+.con .stat .right {
+  width: 40%;
+  height: 100%;
+  position: absolute;
+  text-align: center;
+  line-height: 2.4rem;
+  font-size: 0.65rem;
+  right: 0;
+  top: 0;
+  color: #ccc;
 }
