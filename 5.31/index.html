@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style media="screen">
+			*{
+			  margin: 0;
+			  padding: 0;
+			}
+			#app{
+				width: 800px;
+				height: auto;
+			}
+			ul{
+			  margin: 10px;
+			  list-style: none;
+			  width:600px;
+			  clear: both;
+			  height: 1350px;
+			}
+			li{
+			  width:128px;
+			  float: left;
+			  margin: 10px;
+			  height: 250px;
+			}
+			p{
+			  text-align: center;
+			}
+			p:nth-of-type(1){
+			  font-weight: bold;
+			}
+			a{
+			  padding:8px;
+			  border: 1px solid #000;
+			  text-decoration: none;
+			}
+</style>
+	</head>
+	<body>
+		<input type="text" name="txt" id="txt" value="" />
+		<input type="button" name="btn" id="btn" value="搜索" />
+		<br>
+		<div id="app">
+			
+		</div>
+	</body>
+	<script src="src/jQuery.js"></script>
+	<script src="src/template.js"></script>
+	<script type="text/html" id="temp"></script>
+	<script src="common/m.js"></script>
+	<script src="common/v.js"></script>
+	<script src="common/c.js"></script>
+</html>
