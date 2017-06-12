@@ -5,8 +5,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 	<title>Document</title>
-	<link rel="stylesheet" type="text/css" href="css/stat.css"/>
 	<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+	<link rel="stylesheet" type="text/css" href="css/stat.css"/>
+	<link rel="stylesheet" type="text/css" href="css/animate.css"/>
+	<script src="js/jQuery.js"></script>
+	<script src="js/stat.js"></script>
 </head>
 <body id="bodyColor">
 	<div id="box">
@@ -21,14 +24,55 @@
 				<input type="button" name="" id="" value="下月" />
 			</div>
 		</div>
-		<div class="allsum">
-			<span>工时统计</span>
+		<div class="allsum" >
+			<span class="active">工时统计</span>
 			<span>其它统计</span>
 			<span>记月工资</span>
 		</div>
-		<div class="allstat">
-			
+		<div class="alls">
+			<div class="allstat1 f1">
+				<div class="days">
+					<span>已工作天数</span>
+					<em>0</em>
+					<i>天</i>
+				</div>
+				<div class="hours">
+					<span>已工作小时数</span>
+					<em>0.00</em>
+					<i>小时</i>
+				</div>
+				<div class="workMoney">
+					<span>已工作工资</span>
+					<em>0.00</em>
+					<i>元</i>
+				</div>
+			</div>
+			<div class="allstat2 f1">
+				<div class="days">
+					<span>白班</span>
+					<em>0</em>
+					<i>天</i>
+				</div>
+				<div class="hours">
+					<span>中班</span>
+					<em>0</em>
+					<i>天</i>
+				</div>
+				<div class="workMoney">
+					<span>夜班</span>
+					<em>0</em>
+					<i>天</i>
+				</div>
+			</div>
+			<div class="allstat3 f1">
+				<div class="days">
+					<span>到手工资</span>
+					<em>￥</em>
+					<i>3366.00</i>
+				</div>
+			</div>
 		</div>
+		
 	</div>
 </body>
 </html>

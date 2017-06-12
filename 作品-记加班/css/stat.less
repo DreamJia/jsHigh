@@ -54,18 +54,18 @@
     border-bottom: .1rem solid #999;
     position: relative;
     margin-bottom: 1rem;
+    background: #fff;
     span{
         display: inline-block;
         width: 33.3%;
         position: absolute;
         top: -4/@rem;
         text-align: center;
-        line-height: 120/@rem;
-        
+        line-height: 120/@rem; 
     }
     span:nth-child(1){
         left: 0;
-        border-bottom: .2rem solid #F37270;
+        //border-bottom: .2rem solid #F37270;
     }
     span:nth-child(2){
         left: 33.3%;
@@ -74,8 +74,70 @@
         left: 66.6%;
     }
 }
-.allstat{
-    width: 100%;
-    height: 300/@rem;
-    background: #fff;
+#box .active{
+    border-bottom: .2rem solid #F37270;
 }
+.allstat1,.allstat2{
+    width: 100%;
+    display: none;
+    div{
+        width: 100%;
+        height: 200/@rem;
+        margin-bottom: 100/@rem;
+        background: #fff;
+        em,i,span{
+            display: inline-block;
+            width: 32%;
+            line-height: 200/@rem;
+        }
+        span{
+            font-size: 40/@rem;
+            color: #999;
+            text-align: center;
+        }
+        i{
+            font-size: 40/@rem;
+            color: #f37270;
+            text-align: center;
+        }
+        em{
+            font-size: 60/@rem;
+            color: #f37270;
+            text-align: right;
+        }
+    }
+}
+.allstat3{
+    width: 100%;
+    display: none;
+    div{
+        width: 100%;
+        height: 200/@rem;
+        background: #fff;
+        em,i,span{
+            display: inline-block;
+            width: 32%;
+            line-height: 200/@rem;
+        }
+        span{
+            font-size: 40/@rem;
+            color: #999;
+            text-align: center;
+        }
+        i{
+            font-size: 40/@rem;
+            color: #f37270;
+            text-align: center;
+        }
+        em{
+            font-size: 60/@rem;
+            color: #f37270;
+            text-align: right;
+        }       
+    }
+}
+#box .allstat1{
+    display: block;
+}
+
+
